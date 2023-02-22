@@ -28,5 +28,7 @@ $ /path/to/cloned/repo/install.sh
 $ /path/to/installation/directory/uninstall.sh
 ```
 
+## Screenshot
+
 ![Screenshot](screenshot.png?raw=true "There are many desktops like it. This one is mine")
 
