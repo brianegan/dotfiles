@@ -1,0 +1,12 @@
+configuration {
+	font: "SF Pro Display 12";
+	dpi: 163;
+	kb-mode-previous: "Super+Shift+space";
+	drun-display-format: "{name}";
+	drun-match-fields: "name";
+	kb-mode-next: "Super+space";
+	case-sensitive: false;
+}
+
+
+@theme "firewatch"

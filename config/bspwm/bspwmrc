@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Monitors & Workspaces
+bspc monitor DP-4 -d I II III IV V 
+bspc monitor DP-2 -d VI VII VIII IX X 
+bspc config remove_disabled_monitors true
+
+# Border & Gaps
+bspc config focused_border_color "#82dffe"
+bspc config normal_border_color "#00001a"
+bspc config border_radius         10
+
+# Tilings
+bspc config split_ratio           0.50
+
+# Monocle Config
+bspc config single_monocle        true
+bspc config borderless_monocle    true
+bspc config gapless_monocle       false
+
+# Application Settings
+bspc rule -a 'tsmapplication.exe' state=floating 
+bspc rule -a 'TopTracker:*:*' state=floating flag=hidden
+bspc rule -a 'zygor.exe' state=floating
+bspc rule -a '*:xzoom:*' state=floating rectangle=1280x720+0+0 center=true
+bspc rule -a '*:*:Picture in picture' state=floating
+bspc rule -a Plank layer=above manage=on border=off
+
+# Start up every time
+~/.config/picom/launch.sh > /dev/null &
+~/.config/polybar/launch.sh bspwm_bar DP-4 &
+~/.config/polybar/launch.sh bspwm_bar DP-2 &
+xscreensaver --no-splash &
+~/.fehbg &
+
+# Start up once
+[ "$1" = 0 ] && wmname LG3D
+[ "$1" = 0 ] && xsetroot -cursor_name left_ptr &
+[ "$1" = 0 ] && openrgb -p cyan.orp > /dev/null &
+[ "$1" = 0 ] && dunst &
+[ "$1" = 0 ] && volnoti &
+[ "$1" = 0 ] && sxhkd &
+

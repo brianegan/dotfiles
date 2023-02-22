@@ -1,0 +1,16 @@
+#!/bin/bash
+pgrep -x picom > /dev/null || picom --experimental-backends &
+
+PROGS=('WoWClassic.exe' 'DarkSoulsIII' 'darksoulsremastered.exe' 'ffxiv_dx11.exe' 'PathOfExile' 'Hades')
+while sleep 10; do  
+       for p in ${PROGS[@]}; do 
+               if [[ -n $(pgrep $p) ]]; then 
+                       killall picom
+                       while [[ -n $(pgrep $p) ]]; do 
+                               sleep 5 
+                       done 
+                       picom --experimental-backends &
+               fi 
+       done 
+done
+

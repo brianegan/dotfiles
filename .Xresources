@@ -1,0 +1,10 @@
+Xft.autohint: false
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: true
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.dpi: 144
+Xcursor.size: 40
+Xcursor.theme: oreo_firewatch_cursors
+

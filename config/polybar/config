@@ -1,0 +1,107 @@
+[colors]
+firewatch-bg = #d800001a
+adwaita-bg = #d8171717
+ocean-bg = #d80F1317 
+
+[bar/i3_bar]
+modules-left = i3
+modules-center = date 
+modules-right = openweathermap-simple tdie gpu_utilization time
+enable-ipc = true
+bottom = false
+height = 44
+font-0 = SF Pro Display
+font-1 = polybar
+background = ${colors.firewatch-bg}
+foreground = #ddffffff
+module-margin = 2
+dpi = 163
+border-top-size = 6
+border-right-size = 20
+border-left-size = 14
+border-color = ${colors.firewatch-bg}
+
+[bar/bspwm_bar]
+monitor= ${env:MONITOR:}
+padding-left = 3
+padding-right = 3
+modules-left = bspwm
+modules-center = date 
+modules-right = tdie openweathermap-simple time
+enable-ipc = true
+bottom = false
+width = 100%:-12
+offset-x = 6
+height = 50
+font-0 = SF Pro Display
+font-1 = polybar
+background = ${colors.firewatch-bg}
+foreground = #ddffffff
+module-margin = 2
+dpi = 163
+border-top-size = 6
+border-color = ${colors.firewatch-bg}
+wm-restack = bspwm
+tray-position = right
+tray-offset-x = -375px
+tray-offset-y = -4px
+tray-padding = 0
+tray-maxsize = 32px
+tray-detached = true
+radius-bottom = 10
+
+[module/openweathermap-simple]
+type = custom/script
+exec = ~/.scripts/openweathermap-simple.sh
+interval = 600
+label-font = 2
+click-left=google-chrome-stable https://openweathermap.org/city/2645826
+
+[module/time]
+type = internal/date
+time = %H:%M
+label = %{T1} %{T-} %time% 
+
+[module/date]
+type = custom/script
+exec = date +"%A, %b %d"
+label = %{T1} %{T-}%output%
+click-left=google-chrome-stable https://calendar.google.com/calendar/u/0/r &
+
+[module/gpu_utilization]
+type = custom/script
+exec = ~/.scripts/gpu_utilization.sh
+label = %{T1} %{T-} %output%%
+interval = 10
+
+[module/gpu_temperature]
+type = custom/script
+exec = ~/.scripts/gpu_temperature.sh
+label = %{T1}%{T-} %output%°
+interval = 2
+
+[module/tdie]
+type = custom/script
+exec = ~/.scripts/tdie.sh
+label = %{T1}%{T-} %output%
+interval = 2
+
+[module/bspwm]
+type = internal/bspwm
+format = <label-state> <label-mode>
+label-focused = %{T1}  %{T-}
+label-empty = %{T1}  %{T-}
+label-occupied = %{T1}  %{T-}
+label-urgent = %{T1}  %{T-}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+label-mode = %{T1}%{T-}
+label-mode-padding = 3
+label-focused = %{T1}%{T-}
+label-focused-padding = 1
+label-unfocused = %{T1}%{T-}
+label-unfocused-padding = 1
+label-urgent = %{T1}%{T-}
+label-urgent-padding = 1

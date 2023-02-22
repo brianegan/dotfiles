@@ -1,0 +1,37 @@
+menu {
+  background-color: #202032;
+  border-color: #202032;
+}
+
+menubar {
+  background-color: #00001a;
+}
+
+window, treeview, toolbar, list, dialog {
+  background-color: #00001a;
+  border-color: #00001a;
+}
+
+button {
+  background-color: #202032;
+  border-color: #202032;
+}
+
+toolbar button {
+  background-color: #00001a;
+  border-color: #00001a;
+}
+
+notebook {
+  border-color: #FF0000;
+}
+
+treeview button {
+  background-color: #00001a;
+  border-color: #00001a;
+}
+
+entry {
+  background-color: #202032;
+  border-color: #202032;
+}

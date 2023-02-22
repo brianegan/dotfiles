@@ -1,0 +1,2 @@
+export QT_STYLE_OVERRIDE=adwaita-dark
+export QT_SCALE_FACTOR=1.33333
